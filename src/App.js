@@ -1,11 +1,7 @@
 // @flow
 
 import React, { Component } from 'react';
-import {
-  Route,
-  Switch,
-  Redirect,
-} from 'react-router-dom';
+import { Route } from 'react-router-dom';
 
 import createHistory from 'history/createBrowserHistory';
 import { ConnectedRouter } from 'react-router-redux';
