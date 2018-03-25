@@ -13,7 +13,7 @@ import type { RouterHistory } from 'react-router-dom';
 import { Provider } from 'react-redux';
 
 import Home from './components/Home';
-import Catalog from './components/Catalog';
+import Catalog from './containers/Catalog';
 
 import configureStore from './store';
 
@@ -28,8 +28,8 @@ class App extends Component {
       <Provider store={store}>
         <ConnectedRouter history={history} basename="/">
           <div>
-            <Route path="/catalog" component={Catalog} />
-            <Route path="/" component={Home} />
+            <Route exact path="/catalog" component={Catalog} />
+            <Route exact path="/" component={Home} />
           </div>
         </ConnectedRouter>
       </Provider>
