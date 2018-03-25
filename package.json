@@ -1,0 +1,37 @@
+{
+  "name": "catalog",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "history": "^4.7.2",
+    "react": "^16.2.0",
+    "react-dom": "^16.2.0",
+    "react-icons": "^2.2.7",
+    "react-redux": "^5.0.7",
+    "react-router-dom": "^4.2.2",
+    "react-router-redux": "5.0.0-alpha.9",
+    "react-virtualized": "^9.18.5",
+    "redux": "^3.6.0",
+    "redux-saga": "^0.16.0",
+    "styled-components": "^3.2.3"
+  },
+  "devDependencies": {
+    "eslint": "^4.18.2",
+    "eslint-config-airbnb": "^16.1.0",
+    "eslint-config-import": "^0.13.0",
+    "eslint-plugin-dependencies": "^2.4.0",
+    "eslint-plugin-flowtype": "^2.46.1",
+    "eslint-plugin-import": "^2.9.0",
+    "eslint-plugin-jsx-a11y": "^6.0.3",
+    "eslint-plugin-react": "^7.7.0",
+    "eslint-plugin-styled-components-config": "^0.0.2",
+    "react-scripts": "^1.1.1",
+    "flow-bin": "^0.68.0"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
+  }
+}
