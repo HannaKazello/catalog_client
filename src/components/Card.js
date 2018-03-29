@@ -4,7 +4,7 @@ import React, { PureComponent } from 'react';
 import { Link } from 'react-router-dom';
 
 import { Vector } from './ui/Grid';
-import { Card, Header } from './ui/Card';
+import { Card, Title, About, Author } from './ui/Card';
 
 class Catalog extends PureComponent {
   findField = (field: string) => {
@@ -14,15 +14,14 @@ class Catalog extends PureComponent {
   }
 
   render() {
-    const path = 'pathToFile';
-
     return (
       <Card>
-        <img src={path} alt="cats" />
         <Vector direction="column">
-          <Header>{this.findField('Заглавие')}</Header>
-          <Header>{this.findField('Автор')}</Header>
-          <Header>{this.findField('Аннотация')}</Header>
+          <Title>{this.findField('Заглавие')}</Title>
+          <Author>{this.findField('Автор')}</Author>
+          <About>
+            {this.findField('Аннотация')}
+          </About>
         </Vector>
       </Card>
     );
