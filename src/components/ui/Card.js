@@ -71,6 +71,8 @@ export const Publishig = styled.div.withConfig({
 export const Divider = styled.hr.withConfig({
   displayName: 'Divider',
 })`
+  border: none;
   width: 100%;
   height: 1px;
+  background-color: #a094b7;
 `;
