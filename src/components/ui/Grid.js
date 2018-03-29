@@ -22,9 +22,14 @@ export const CardBox = styled.div.withConfig({
 })`
   display: flex;
   flex-wrap: wrap;
+  flex: 1 auto;
   justify-content: flex-start;
   align-items: center;
-  width: 100%;
+  margin-left: 230px;
+  margin-top: 90px;
+  height: 100%;
+  overflow-x: hidden;
+`;
 
 export const Screen = styled.div.withConfig({
   displayName: 'Screen',
