@@ -25,5 +25,14 @@ export const WrapVector = styled.div.withConfig({
   justify-content: flex-start;
   align-items: center;
   width: 100%;
+
+export const Screen = styled.div.withConfig({
+  displayName: 'Screen',
+})`
+  display: flex;
+  justify-content: flex-start;
   height: 100%;
+  width: 100%;
+  background-color: #e2e1e0;
+  font-family: 'Roboto', sans-serif;
 `;
