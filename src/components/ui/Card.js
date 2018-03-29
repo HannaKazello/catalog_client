@@ -28,7 +28,7 @@ export const Card = styled.div.withConfig({
 `;
 
 export const Title = styled.div.withConfig({
-  displayName: 'Header',
+  displayName: 'Title',
 })`
   margin-bottom: .125em;
   font-size: 1.5em;
@@ -37,7 +37,7 @@ export const Title = styled.div.withConfig({
 `;
 
 export const About = styled.p.withConfig({
-  displayName: 'Header',
+  displayName: 'About',
 })`
   line-height: 1.4;
   overflow: hidden;
@@ -48,10 +48,29 @@ export const About = styled.p.withConfig({
 `;
 
 export const Author = styled.div.withConfig({
-  displayName: 'Header',
+  displayName: 'Author',
 })`
   color: #666;
   font-size: .825em;
   line-height: 1.4;
   margin-bottom: .5em;
+`;
+
+export const Publishig = styled.div.withConfig({
+  displayName: 'Publishig',
+})`
+  color: #666;
+  font-size: .825em;
+  line-height: 1.4;
+  margin-bottom: .5em;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+`;
+
+export const Divider = styled.hr.withConfig({
+  displayName: 'Divider',
+})`
+  width: 100%;
+  height: 1px;
 `;

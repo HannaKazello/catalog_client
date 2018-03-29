@@ -4,7 +4,7 @@ import React, { PureComponent } from 'react';
 import { Link } from 'react-router-dom';
 
 import { Vector } from './ui/Grid';
-import { Card, Title, About, Author } from './ui/Card';
+import { Card, Title, About, Author, Publishig, Divider } from './ui/Card';
 
 class Catalog extends PureComponent {
   findField = (field: string) => {
@@ -19,9 +19,12 @@ class Catalog extends PureComponent {
         <Vector direction="column">
           <Title>{this.findField('Заглавие')}</Title>
           <Author>{this.findField('Автор')}</Author>
-          <About>
-            {this.findField('Аннотация')}
-          </About>
+          <About> {this.findField('Аннотация')}</About>
+          <Divider />
+          <Publishig>
+            <div>{this.findField('Место издания')}</div>
+            <div>{this.findField('Год издания')}</div>
+          </Publishig>
         </Vector>
       </Card>
     );
