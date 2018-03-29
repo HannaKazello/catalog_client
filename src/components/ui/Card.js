@@ -15,7 +15,6 @@ export const Card = styled.div.withConfig({
   box-sizing: border-box;
   max-width: 320px;
   width: 80%;
-  height: 200px;
   margin: 1rem;
 
   border-radius: 2px;
