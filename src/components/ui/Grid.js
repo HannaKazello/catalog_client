@@ -17,8 +17,8 @@ export const Vector = styled.div.withConfig({
   height: 100%;
 `;
 
-export const WrapVector = styled.div.withConfig({
-  displayName: 'WrapVector',
+export const CardBox = styled.div.withConfig({
+  displayName: 'CardBox',
 })`
   display: flex;
   flex-wrap: wrap;
