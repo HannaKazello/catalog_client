@@ -16,3 +16,14 @@ export const Vector = styled.div.withConfig({
   width: 100%;
   height: 100%;
 `;
+
+export const WrapVector = styled.div.withConfig({
+  displayName: 'WrapVector',
+})`
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+`;
