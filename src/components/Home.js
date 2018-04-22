@@ -1,16 +1,40 @@
 // @flow
 
 import React, { PureComponent } from 'react';
-import { Link } from 'react-router-dom';
+import { SearchBox, Hits, MenuFilter } from 'searchkit';
+import Catalog from './Catalog';
+import { SearchBox as Header } from './ui/Search';
+import { FilterBox } from './ui/Filter';
+import { Screen } from './ui/Grid';
+
+const sourceFilter = [
+  'fields.tag',
+  'fields.value',
+  'references.tag',
+  'refernces.value',
+];
 
 class Home extends PureComponent {
   render() {
     return (
-      <Link
-        to="/catalog"
-      >
-      Hello Home
-      </Link>
+      <Screen>
+        <Header>
+          <SearchBox />
+        </Header>
+        <Hits
+          hitsPerPage={50}
+          sourceFilter={sourceFilter}
+          listComponent={Catalog}
+        />
+        <FilterBox>
+          <MenuFilter
+            field="fields.tag.raw"
+            fieldOptions={{ type: 'nested', options: { path: 'fields' } }}
+            title="Tags"
+            id="tags"
+          />
+        </FilterBox>
+      </Screen>
     );
   }
 }

@@ -3,26 +3,20 @@
 import React, { PureComponent } from 'react';
 import { Link } from 'react-router-dom';
 
-import { Screen, CardBox } from './ui/Grid';
+import { CardBox } from './ui/Grid';
 import Card from './Card';
-import { FilterBox } from './ui/Filter';
-import { SearchBox } from './ui/Search';
 
 class Catalog extends PureComponent {
   render() {
-    const { books } = this.props;
+    const { hits } = this.props;
 
     return (
-      <Screen>
-        <SearchBox />
-        <FilterBox />
-        <CardBox>
-          <Card book={books[0]} />
-          <Card book={books[1]} />
-          <Card book={books[0]} />
-          <Card book={books[1]} />
-        </CardBox>
-      </Screen>
+      <CardBox>
+        {hits
+          .filter(item => item._index === 'records')
+          .map(record => <Card book={record._source} />)
+        }
+      </CardBox>
     );
   }
 }
