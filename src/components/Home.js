@@ -1,6 +1,6 @@
 // @flow
 
-import React, { PureComponent } from 'react';
+import React from 'react';
 import {
   SearchBox,
   Hits,
@@ -10,7 +10,7 @@ import {
   TopBar,
   LayoutBody,
   SideBar,
-  HierarchicalMenuFilter,
+  HierarchicalRefinementFilter,
   RefinementListFilter,
   LayoutResults,
   ActionBar,
@@ -21,9 +21,6 @@ import {
   HitsStats,
 } from 'searchkit';
 import Catalog from './Catalog';
-import { SearchBox as Header } from './ui/Search';
-import { FilterBox } from './ui/Filter';
-import { Screen } from './ui/Grid';
 
 const sourceFilter = [
   'fields.tag',
@@ -43,17 +40,17 @@ const Home = () =>
       </TopBar>
       <LayoutBody>
         <SideBar>
-          <HierarchicalMenuFilter
-            fields={['fields.tag.raw', 'fields.value']}
+          <HierarchicalRefinementFilter
+            field="fields.tag.raw"
             fieldOptions={{ type: 'nested', options: { path: 'fields' } }}
             title="Categories"
-            id="categories"
+            id="fields"
           />
           <RefinementListFilter
             id="references"
             title="References"
-            field="references.tag.raw"
-            fieldOptions={{ type: 'nested', options: { path: 'fields' } }}
+            field="references.value.raw"
+            fieldOptions={{ type: 'nested', options: { path: 'references' } }}
             operator="AND"
             size={10}
           />
@@ -62,6 +59,13 @@ const Home = () =>
             fieldOptions={{ type: 'nested', options: { path: 'fields' } }}
             title="Tags"
             id="tags"
+            listComponent={ItemList}
+          />
+          <MenuFilter
+            field="funds.name.raw"
+            fieldOptions={{ type: 'nested', options: { path: 'funds' } }}
+            title="Фонды"
+            id="funds"
             listComponent={ItemList}
           />
         </SideBar>
