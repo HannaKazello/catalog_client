@@ -15,6 +15,7 @@
     "react-virtualized": "^9.18.5",
     "redux": "^3.6.0",
     "redux-saga": "^0.16.0",
+    "elasticsearch": "^13.3.1",
     "styled-components": "^3.2.3"
   },
   "devDependencies": {
