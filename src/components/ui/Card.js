@@ -5,17 +5,16 @@ import styled from 'styled-components';
 export const Card = styled.div.withConfig({
   displayName: 'Card',
 })`
-  background-color: #d1c4e9;
+  background-color: #b3e5fc;
 
   display: flex;
   justify-content: space-between;
   align-items: center;
 
-  padding: 3%;
+  padding: 1.5%;
   box-sizing: border-box;
-  max-width: 320px;
-  width: 30%;
-  margin: 1rem;
+  width: 46%;
+  margin: 5px;
 
   border-radius: 2px;
 
@@ -31,8 +30,8 @@ export const Title = styled.div.withConfig({
   displayName: 'Title',
 })`
   margin-bottom: .125em;
-  font-size: 1.5em;
-  font-weight: 700;
+  font-size: 1em;
+  font-weight: 400;
   line-height: 1.1;
 `;
 
@@ -75,4 +74,18 @@ export const Divider = styled.hr.withConfig({
   width: 100%;
   height: 1px;
   background-color: #a094b7;
+`;
+
+export const Chip = styled.p.attrs({
+  className: 'chip',
+})`
+  font-size: .625em;
+  text-overflow: ellipsis;
+`;
+
+export const ChipsBox = styled.div`
+  display: flex;
+  flex-wrap: no-wrap;
+  overflow: hidden;
+  width: 95%;
 `;

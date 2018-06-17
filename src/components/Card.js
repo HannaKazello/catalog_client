@@ -4,27 +4,77 @@ import React, { PureComponent } from 'react';
 import { Link } from 'react-router-dom';
 
 import { Vector } from './ui/Grid';
-import { Card, Title, About, Author, Publishig, Divider } from './ui/Card';
+import { Card, Title, Chip, Author, Publishig, Divider, ChipsBox } from './ui/Card';
+
+const findIndex = (el, field) => {
+  if (field.notInclude && el.tag.toLowerCase().includes(field.notInclude)) {
+    return false;
+  }
+
+  const finded = el.tag.toLowerCase().includes(field.find.toLowerCase());
+
+  if (!finded && field.alternatives) {
+    const find = field.alternatives.find(alt =>
+      el.tag.toLowerCase().includes(alt.toLowerCase()));
+    return Boolean(find);
+  }
+
+  return finded;
+};
 
 class Catalog extends PureComponent {
-  findField = (field: string) => {
+  findField = (field: Object) => {
     const { book } = this.props;
-    const findedIndex = book.fields.findIndex(el => el.tag.match(field));
+    console.log('Book: ', book);
+
+    const findedIndex = book.fields.findIndex(el =>
+      findIndex(el, field));
+
     return findedIndex > -1 ? book.fields[findedIndex].value : '';
   }
 
   render() {
+    if (!this.props.book || !this.props.book.fields) {
+      return null;
+    }
     return (
       <Card>
         <Vector direction="column">
-          <Title>{this.findField('Заглавие')}</Title>
-          <Author>{this.findField('Автор')}</Author>
-          <About> {this.findField('Аннотация')}</About>
-          <Divider />
+          <Title>
+            {this.findField({
+              find: 'заглавие',
+            })}
+          </Title>
+          <Author>
+            {this.findField({
+              find: 'автор',
+              alternatives: ['ответствен'],
+              notInclude: 'знак',
+            })}
+          </Author>
           <Publishig>
-            <div>{this.findField('Место издания')}</div>
-            <div>{this.findField('Год издания')}</div>
+            <div>
+              {this.findField({
+                find: 'место издания',
+              })}
+            </div>
+            <div>
+              {this.findField({
+                find: 'издательство',
+              })}
+            </div>
+            <div>
+              {this.findField({
+                find: 'год издания',
+                alternatives: ['дата издания'],
+              })}
+            </div>
           </Publishig>
+          <Divider />
+          <ChipsBox>
+            {this.props.book.references.slice(0, 5).map(el => <Chip>{el.value}</Chip>)}
+            {this.props.book.references.length > 5 && <Chip>...</Chip>}
+          </ChipsBox>
         </Vector>
       </Card>
     );

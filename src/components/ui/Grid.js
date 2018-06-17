@@ -25,7 +25,7 @@ export const CardBox = styled.div.withConfig({
   flex: 1 auto;
   justify-content: flex-start;
   align-items: center;
-  margin-left: 230px;
+  margin-left: 290px;
   margin-top: 90px;
   height: 100%;
   overflow-x: hidden;
@@ -35,9 +35,7 @@ export const Screen = styled.div.withConfig({
   displayName: 'Screen',
 })`
   display: flex;
-  justify-content: flex-start;
+  flex-direction: column;
   height: 100%;
   width: 100%;
-  background-color: #e2e1e0;
-  font-family: 'Roboto', sans-serif;
 `;

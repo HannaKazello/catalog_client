@@ -1,12 +1,11 @@
 // @flow
 
 import React, { PureComponent } from 'react';
-import { Link } from 'react-router-dom';
 
 import { Screen, CardBox } from './ui/Grid';
 import Card from './Card';
-import { FilterBox } from './ui/Filter';
-import { SearchBox } from './ui/Search';
+import Buckets from '../containers/Buckets';
+import SearchBox from './ui/Navbar';
 
 class Catalog extends PureComponent {
   render() {
@@ -15,12 +14,9 @@ class Catalog extends PureComponent {
     return (
       <Screen>
         <SearchBox />
-        <FilterBox />
+        <Buckets />
         <CardBox>
-          <Card book={books[0]} />
-          <Card book={books[1]} />
-          <Card book={books[0]} />
-          <Card book={books[1]} />
+          {books.map(book => <Card book={book} />)}
         </CardBox>
       </Screen>
     );

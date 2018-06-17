@@ -10,16 +10,19 @@ type Book = {
   references: Array<{ tag: string, value: string }>,
 };
 
-export type State = Array<Book>;
-const initialState: State = fakeStore.books;
+export type State = {
+  records: Array<Book>,
+};
+const initialState: State = {
+  records: [],
+};
 
 export default (state: State = initialState, action: Action) => {
   switch (action.type) {
-    case 'BOOKS_LOADED': {
+    case 'RECORDS_LOADED': {
       const newBooks = action.payload;
       return {
-        ...state,
-        ...newBooks,
+        records: newBooks,
       };
     }
     default:
@@ -27,4 +30,4 @@ export default (state: State = initialState, action: Action) => {
   }
 };
 
-export const getBooks = (state: State): string => state;
+export const getBooks = (state: State): string => state.records;
