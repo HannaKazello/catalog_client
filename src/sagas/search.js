@@ -25,5 +25,4 @@ export default function* (): Generator<*, *, *> {
     values: key.value.buckets,
   }));
   yield put(loadBuckets(buckets));
-  // console.log(buckets);
 }

@@ -16,7 +16,7 @@ class Catalog extends PureComponent {
         <SearchBox />
         <Buckets />
         <CardBox>
-          {books.map(book => <Card key={book.belmarcId} book={book} />)}
+          {books.map(book => <Card key={book.belmarcId} book={book} showRecord={this.props.showRecord} />)}
         </CardBox>
       </Screen>
     );

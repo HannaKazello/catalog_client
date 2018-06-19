@@ -11,6 +11,7 @@ import { Provider } from 'react-redux';
 import Catalog from './containers/Catalog';
 import Login from './containers/Login';
 import SignIn from './containers/SignIn';
+import RecordsInfo from './containers/RecordInfo';
 
 import configureStore from './store';
 
@@ -28,6 +29,7 @@ class App extends Component {
             <Route exact path="/" component={Catalog} />
             <Route exact path="/login" component={Login} />
             <Route exact path="/signin" component={SignIn} />
+            <Route exact path="/record/:id" component={RecordsInfo} />
           </div>
         </ConnectedRouter>
       </Provider>

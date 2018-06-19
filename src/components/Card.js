@@ -32,12 +32,16 @@ class Catalog extends PureComponent {
     return findedIndex > -1 ? book.fields[findedIndex].value : '';
   }
 
+  onClick = () => {
+    this.props.showRecord(this.props.book.id);
+  }
+
   render() {
     if (!this.props.book || !this.props.book.fields) {
       return null;
     }
     return (
-      <Card>
+      <Card onClick={this.onClick}>
         <Vector direction="column">
           <Title>
             {this.findField({

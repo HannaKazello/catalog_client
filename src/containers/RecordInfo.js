@@ -4,7 +4,7 @@ import type { Dispatch } from 'redux';
 import { connect } from 'react-redux';
 import type { RouterHistory } from 'react-router-dom';
 import type { Action } from '../actions';
-import Catalog from '../components/Catalog';
+import RecordsInfo from '../components/RecordsInfo';
 import { getBooks } from '../reducers/app';
 
 const mapStateToProps = state => ({
@@ -17,7 +17,14 @@ type ContainerProps = {
 
 const mapDispatchToProps = (dispatch: Dispatch<Action>, ownProps: ContainerProps) => ({
   back: () => ownProps.history.push('/'),
-  showRecord: id => ownProps.history.push(`/record/${id}`),
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(Catalog);
+const mergeProps = (stateProps, dispatchProps, ownProps) => {
+  const finded = stateProps.books.find(book => book.id === ownProps.match.params.id);
+  return {
+    ...dispatchProps,
+    finded,
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps, mergeProps)(RecordsInfo);

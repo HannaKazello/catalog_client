@@ -85,7 +85,7 @@ export const Chip = styled.p.attrs({
 
 export const ChipsBox = styled.div`
   display: flex;
-  flex-wrap: no-wrap;
+  flex-wrap: ${props => (props.wrap ? 'wrap' : 'no-wrap')};
   overflow: hidden;
   width: 95%;
 `;
