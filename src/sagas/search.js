@@ -9,7 +9,7 @@ const INTERVAL: number = 10000; // ten seconds
 
 function* search(): Generator<*, *, *> {
   const result = yield call(matchAll, 1);
-  console.log(result);
+  // console.log(result);
 }
 
 export default function* (): Generator<*, *, *> {
@@ -25,5 +25,5 @@ export default function* (): Generator<*, *, *> {
     values: key.value.buckets,
   }));
   yield put(loadBuckets(buckets));
-  console.log(buckets);
+  // console.log(buckets);
 }

@@ -1,15 +1,13 @@
 // @flow
 
-import React, { PureComponent } from 'react';
 import styled from 'styled-components';
-import { Link } from 'react-router-dom';
 
-const SearchIcon = styled.i.attrs({
+export const SearchIcon = styled.i.attrs({
   className: 'material-icons white-text',
 })`
 `;
 
-const MainInputBox = styled.div.attrs({
+export const MainInputBox = styled.div.attrs({
   className: '',
 })`
   align-self: flex-end;
@@ -18,7 +16,7 @@ const MainInputBox = styled.div.attrs({
   align-items: center;
 `;
 
-const Input = styled.input.attrs({
+export const Input = styled.input.attrs({
   className: 'white-text col s12',
 })`
   border-bottom-color: white !important ;
@@ -43,25 +41,3 @@ export const NavbarBox = styled.div.withConfig({
     color: white;
   }
 `;
-
-class Navbar extends PureComponent {
-  onEnter = (event: SyntheticKeyboardEvent<*>) => {
-
-  }
-  render() {
-    console.log(this.props);
-    return (
-      <NavbarBox>
-        <Link to="/login">Войти</Link>
-        <Link to="/favorite">Избранное</Link>
-        <Link to="/recomendations">Рекомендации</Link>
-        <MainInputBox>
-          <SearchIcon>search</SearchIcon>
-          <Input type="text" placeholder="search" />
-        </MainInputBox>
-      </NavbarBox>
-    );
-  }
-}
-
-export default Navbar;

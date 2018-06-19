@@ -6,12 +6,14 @@ export type State = {
   authenticated: boolean,
   authenticating: boolean,
   error: boolean | { code: string, message: string },
+  token: string,
 };
 
 const initialState: State = {
   authenticated: false,
   authenticating: false,
   error: false,
+  token: '',
 };
 
 export default (state: State = initialState, action: Action) => {
@@ -21,6 +23,7 @@ export default (state: State = initialState, action: Action) => {
         authenticated: false,
         error: false,
         authenticating: true,
+        token: '',
       };
     }
 
@@ -29,6 +32,7 @@ export default (state: State = initialState, action: Action) => {
         error: false,
         authenticated: true,
         authenticating: false,
+        token: action.payload.token,
       };
     }
 
@@ -37,11 +41,8 @@ export default (state: State = initialState, action: Action) => {
         error: action.payload,
         authenticated: false,
         authenticating: false,
+        token: '',
       };
-    }
-
-    case 'SESSION_EXPIRED': {
-      return initialState;
     }
 
     default: {

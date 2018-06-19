@@ -25,7 +25,6 @@ const findIndex = (el, field) => {
 class Catalog extends PureComponent {
   findField = (field: Object) => {
     const { book } = this.props;
-    console.log('Book: ', book);
 
     const findedIndex = book.fields.findIndex(el =>
       findIndex(el, field));

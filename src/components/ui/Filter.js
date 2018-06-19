@@ -25,11 +25,24 @@ export const BucketKey = styled.p.attrs({
   className: 'truncate',
 })`
   text-overflow: ellipsis;
+  font-weight: ${props => (props.active ? '900' : '300')};
   margin: 0;
+`;
+
+export const DocCount = styled.div`
+  font-size: 12px;
+  text-align: right;
+  color: #ccc;
 `;
 
 export const List = styled.ul`
   overflow: hidden;
+`;
+
+export const BackIcon = styled.i.attrs({
+  className: 'material-icons',
+})`
+  cursor: pointer;
 `;
 
 export const ListItem = styled.li`
@@ -39,5 +52,8 @@ export const ListItem = styled.li`
   padding: 0;
   line-height: 22px;
   font-weight: 300;
-  width: 75%;
+  width: 95%;
+  border-bottom: ${props => (props.active ? '1px solid #01579b' : 'none')}
+  display: flex;
+  justify-content: ${props => props.justify || 'flex-start'};
 `;

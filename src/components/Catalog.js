@@ -5,7 +5,7 @@ import React, { PureComponent } from 'react';
 import { Screen, CardBox } from './ui/Grid';
 import Card from './Card';
 import Buckets from '../containers/Buckets';
-import SearchBox from './ui/Navbar';
+import SearchBox from '../containers/Navbar';
 
 class Catalog extends PureComponent {
   render() {
@@ -16,7 +16,7 @@ class Catalog extends PureComponent {
         <SearchBox />
         <Buckets />
         <CardBox>
-          {books.map(book => <Card book={book} />)}
+          {books.map(book => <Card key={book.belmarcId} book={book} />)}
         </CardBox>
       </Screen>
     );

@@ -27,3 +27,6 @@ export const getAuthenticationStatus = (state: AppState) =>
   authSelectors.getAuthenticationStatus(state.auth);
 export const getAuthenticationError = (state: AppState) =>
   authSelectors.getAuthenticationError(state.auth);
+
+export const getSelectedValue = (state: AppState) =>
+  booksSelectors.getSelectedValue(state.books);

@@ -13,8 +13,12 @@ type Book = {
 export type State = {
   records: Array<Book>,
 };
+
 const initialState: State = {
   records: [],
+  searchString: false,
+  selectedValue: false,
+  selectedRefetence: false,
 };
 
 export default (state: State = initialState, action: Action) => {
@@ -25,9 +29,25 @@ export default (state: State = initialState, action: Action) => {
         records: newBooks,
       };
     }
+
+    case 'SELECT_FIELD_VALUE': {
+      return {
+        ...state,
+        selectedValue: action.payload,
+      };
+    }
+
+    case 'SEARCH': {
+      return {
+        ...state,
+        searchString: action.payload.searchString,
+      };
+    }
+
     default:
       return state;
   }
 };
 
 export const getBooks = (state: State): string => state.records;
+export const getSelectedValue = (state: State) => state.selectedValue;

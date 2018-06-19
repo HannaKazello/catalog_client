@@ -10,11 +10,23 @@ export const Vector = styled.div.withConfig({
   box-sizing: border-box;
 
   justify-content: ${props => props.justify || 'flex-start'};
-  align-items: ${props => props.align || 'center'}
+  align-items: ${props => props.align || 'center'};
+  align-content: center;
 
   min-width: 60px;
   width: 100%;
   height: 100%;
+`;
+
+export const Centrilized = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+  min-width: 60px;
+  min-height: 900px;
 `;
 
 export const CardBox = styled.div.withConfig({

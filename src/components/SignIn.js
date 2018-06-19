@@ -1,7 +1,6 @@
 // @flow
 
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
 import type { Action } from '../actions';
 import { Screen, Centrilized, Vector } from './ui/Grid';
 
@@ -17,7 +16,6 @@ type State = {
   password: string,
   errorEmail: string | false,
   errorPassword: string | false,
-  redirectToReferrer: boolean,
   message: string,
 }
 
@@ -27,7 +25,6 @@ class Login extends Component<Props, State> {
     password: '',
     errorEmail: false,
     errorPassword: false,
-    redirectToReferrer: false,
     message:'',
   }
 
@@ -64,7 +61,7 @@ class Login extends Component<Props, State> {
       return;
     }
     const { email, password } = this.state;
-    this.props.login({ email, password });
+    this.props.signin({ email, password });
   }
 
   render() {
@@ -97,11 +94,10 @@ class Login extends Component<Props, State> {
                 Вернуться
               </button>
               <button className="btn waves-effect waves-light light-blue darken-4" onClick={this.handleSubmit} >
-                Войти
+                Зарегистрироваться
                 <i className="material-icons right">send</i>
               </button>
             </Vector>
-            <Link to="/signin">Зарегистрироваться</Link>
           </div>
         </Centrilized>
       </Screen>
